@@ -6,7 +6,9 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const fmt = d => d ? new Date(d).toLocaleString() : '-';
 
 async function api(url, method = 'GET', body) {
-  const r = await fetch('/api' + url, {
+  const API_URL = 'https://smart-parking-system-1-h4ft.onrender.com';
+
+const r = await fetch(API_URL + '/api' + url, {
     method,
     headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
     body: body ? JSON.stringify(body) : undefined
